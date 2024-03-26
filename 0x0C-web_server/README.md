@@ -80,28 +80,37 @@ sylvain@ubuntu$
 **Server terminal:**
 
 ```
-root@sy-web-01$ ./1-install_nginx_web_server > /dev/null 2>&1
-root@sy-web-01$
-root@sy-web-01$ curl localhost
+ubuntu@4929-web-01:~$ ./1-install_nginx_web_server > /dev/null 2>&1
+ubuntu@4929-web-01:~$ curl localhost
 Hello World!
-root@sy-web-01$
+ubuntu@4929-web-01:~$
+
 ```
 
 
 **Local terminal:**
+Naphtal@DESKTOP-R2UR8AA MINGW64 /e/Development/ALX/alx-system_engineering-devops/0x0C-web_server (master)
+$ curl 3.86.7.143
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    13  100    13    0     0     24      0 --:--:-- --:--:-- --:--:--    24Hello World!
 
-sylvain@ubuntu$ curl 34.198.248.145/
-Hello World!
-sylvain@ubuntu$ curl -sI 34.198.248.145/
+
+Naphtal@DESKTOP-R2UR8AA MINGW64 /e/Development/ALX/alx-system_engineering-devops/0x0C-web_server (master)
+$ curl -sI 3.86.7.143/
 HTTP/1.1 200 OK
-Server: nginx/1.4.6 (Ubuntu)
-Date: Tue, 21 Feb 2017 23:43:22 GMT
+Server: nginx/1.18.0 (Ubuntu)
+Date: Tue, 26 Mar 2024 17:41:50 GMT
 Content-Type: text/html
-Content-Length: 30
-Last-Modified: Tue, 21 Feb 2017 07:21:32 GMT
+Content-Length: 13
+Last-Modified: Tue, 26 Mar 2024 12:57:14 GMT
 Connection: keep-alive
-ETag: "58abea7c-1e"
+ETag: "6602c62a-d"
 Accept-Ranges: bytes
+
+
+Naphtal@DESKTOP-R2UR8AA MINGW64 /e/Development/ALX/alx-system_engineering-devops/0x0C-web_server (master)
+$
 
 
 **Maarten’s PRO-tip:**
