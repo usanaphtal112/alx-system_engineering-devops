@@ -3,7 +3,7 @@
 # Display information about subdomain.
 
 # Function to retrieve and display information about a subdomain
-domain_information () {
+domain_information(){
 	# Perform DNS lookup for the subdomain under the specified domain
 	line = $(dig "$2". "$1" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n''')
 	# Extract relevant information and print it
