@@ -1,27 +1,16 @@
 #!/usr/bin/env bash
-# Usage ./1-world_wide_web <domain> <subdomain>
-# Display information about subdomain.
+# print domains and subdomains
 
-# Function to retrieve and display information about a subdomain
-domain_information(){
-	# Perform DNS lookup for the subdomain under the specified domain
-	line = $(dig "$2". "$1" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n''')
-	# Extract relevant information and print it
-	echo "$2 $line" | awk '{print "The subdomain " $1 " is a " $2 " record and points to " $3)'
+print_domain_subdomain () {
+    dig "$1" | grep -A1 'ANSWER SECTION:' | sed -r "s/$1./$2/g" | awk -F" " ' NR==2 { print "The subdomain " $1 " is a " $4 " record and points to " $5 }'
 }
 
-# Check the number of arguments passed to the script
-if [ "$#" == 1]
+if [ "$#" -eq 2 ]
 then
-	# If there is only one argument,
-	# call the domain information function with predefined subdomain names
-	domain_information "$1" "www"
-	domain_information "$1" "lb-01"
-	domain_information "$1" "web-01"
-	domain_information "$1" "web-02"
-elif [ "$# == 2]
-then
-	# If there are two arguments, call the domain information \
-	# function with the provided subdomain name
-	domain_information "$1" "$2"
+    print_domain_subdomain "$2.$1" "$2"
+else
+    print_domain_subdomain "www.$1" "www"
+    print_domain_subdomain "lb-01.$1" "lb-01"
+    print_domain_subdomain "web-01.$1" "web-01"
+    print_domain_subdomain "web-02.$1" "web-02"
 fi
