@@ -1,9 +1,7 @@
-#!/usr/bin/env bash
-
-Host *
+# SSH Config File
+#
+Host web-01
+	Hostname 3.86.7.143
+	User ubuntu
 	PasswordAuthentication no
 	IdentityFile ~/.ssh/school
-	SendEnv LANG LC_*
-	HashKnownHosts yes
-	GSSAPAuthenication yes
-	GSSAPIDelegateCredentials no
